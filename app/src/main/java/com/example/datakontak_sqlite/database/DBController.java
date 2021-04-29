@@ -1,4 +1,4 @@
-package com.example.datakontak_sqlite.adapter;
+package com.example.datakontak_sqlite.database;
 
 import android.content.ContentValues;
 import android.content.Context;
