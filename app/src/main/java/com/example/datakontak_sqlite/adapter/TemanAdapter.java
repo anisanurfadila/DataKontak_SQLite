@@ -33,10 +33,8 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
     @Override
     public void onBindViewHolder(@NonNull TemanViewHolder holder, int position) {
         String nm,tlp;
-
         nm = listData.get(position).getNama();
         tlp = listData.get(position).getTelpon();
-
         holder.namaTxt.setTextColor(Color.BLUE);
         holder.namaTxt.setTextSize(20);
         holder.namaTxt.setText(nm);
