@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.PopupMenu;
 
 import com.example.datakontak_sqlite.adapter.TemanAdapter;
 import com.example.datakontak_sqlite.database.DBController;
@@ -16,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     private RecyclerView recyclerView;
     private TemanAdapter adapter;
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fab;
 
 
-
+    Bundle bundle = new Bundle();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
     }
 
     public void BacaData(){
@@ -60,5 +66,9 @@ public class MainActivity extends AppCompatActivity {
             //pindah dari teman.java ke dalam Arraylist teman di adapter
             temanArrayList.add(teman);
         }
+
     }
+
+
+
 }

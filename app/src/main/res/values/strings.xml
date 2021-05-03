@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">DataKontak_SQLite</string>
+
+    <string name="stedit">Edit data</string>
+    <string name="sthapus">Delete data</string>
 </resources>
