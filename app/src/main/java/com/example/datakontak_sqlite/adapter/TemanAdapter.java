@@ -58,19 +58,49 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
 
         DBController db = new DBController(context);
 
+        holder.cardku.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                PopupMenu pm = new PopupMenu(context, holder.cardku);
+                pm.inflate(R.menu.popup_menu);
+
+                pm.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.mnedit:
+                                Intent i = new Intent(context, EditTeman.class);
+                                i.putExtra("id",id);
+                                i.putExtra("nama",nm);
+                                i.putExtra("telpon",tlp);
+                                context.startActivity(i);
+                                break;
+                            case R.id.mnhapus:
+                                HashMap<String,String > values = new HashMap<>();
+                                values.put("id",id);
+                                db.DeleteData(values);
+                                Intent intent = new Intent(context, MainActivity.class);
+                                context.startActivity(intent);
+                                break;
+                        }
+
+                        return true;
+                    }
+                });
+                pm.show();;
+                return false;
+            }
+        });
 
 
     }
 
     @Override
     public int getItemCount() {
-
             return (listData != null)?listData.size() : 0;
-
     }
 
     public class TemanViewHolder extends RecyclerView.ViewHolder {
-
 
         private CardView cardku;
         private TextView namaTxt,telponTxt;

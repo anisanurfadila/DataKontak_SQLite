@@ -29,7 +29,13 @@ public class EditTeman extends AppCompatActivity {
         eNama = (TextInputEditText)findViewById(R.id.edtNamatxt);
         editBtn = (Button)findViewById(R.id.buttonEdit);
         eTelpon = (TextInputEditText)findViewById(R.id.edtTelpontxt);
+        id = getIntent().getStringExtra("id");
+        enm = getIntent().getStringExtra("nama");
+        etlp = getIntent().getStringExtra("telpon");
 
+        setTitle("Edit Data");
+        eNama.setText(enm);
+        eTelpon.setText(etlp);
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
