@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditTeman">
+    tools:context=".EditTeman"
+    android:background="@color/edit">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
-        android:layout_width="match_parent"
+        android:layout_width="354dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="75dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,7 +27,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout4"
-        android:layout_width="match_parent"
+        android:layout_width="354dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
@@ -45,9 +46,11 @@
         android:id="@+id/buttonEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:shadowColor="@color/button"
         android:text="Edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
