@@ -31,15 +31,18 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static android.content.ContentValues.TAG;
+
 public class MainActivity extends AppCompatActivity  {
 
+    private FloatingActionButton fab;
     private RecyclerView recyclerView;
     private TemanAdapter adapter;
-    private ArrayList<Teman> temanArrayList;
+    private ArrayList<Teman> temanArrayList = new ArrayList<>();
+
+
     DBController controller = new DBController(this);
     String id,nm,tlp;
-    private FloatingActionButton fab;
-
 
 
     private static  final String TAG = MainActivity.class.getSimpleName();
@@ -47,10 +50,6 @@ public class MainActivity extends AppCompatActivity  {
     public static final String TAG_ID = "id";
     public static final String TAG_NAMA ="nama";
     public static final String TAG_TELPON ="telpon";
-
-
-
-
 
 
     Bundle bundle = new Bundle();
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity  {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,TemanBaru.class);
+                Intent intent = new Intent(MainActivity.this,TambahTeman.class);
                 startActivity(intent);
             }
         });

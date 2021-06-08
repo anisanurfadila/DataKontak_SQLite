@@ -1,6 +1,8 @@
 package com.example.datakontak_sqlite.database;
 
-public class Teman {
+import java.io.Serializable;
+
+public class Teman implements Serializable{
     String id,nama,telpon;
 
     //konstraktor
