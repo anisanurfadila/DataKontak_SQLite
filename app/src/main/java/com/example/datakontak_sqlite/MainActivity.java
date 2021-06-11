@@ -33,7 +33,7 @@ import java.util.HashMap;
 
 import static android.content.ContentValues.TAG;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
     private FloatingActionButton fab;
     private RecyclerView recyclerView;
@@ -41,18 +41,18 @@ public class MainActivity extends AppCompatActivity  {
     private ArrayList<Teman> temanArrayList = new ArrayList<>();
 
 
-    DBController controller = new DBController(this);
-    String id,nm,tlp;
+    // DBController controller = new DBController(this);
+    //   String id,nm,tlp;
 
 
-    private static  final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
     private static String url_select = "http://10.0.2.2/umyTI/bacateman.php";
     public static final String TAG_ID = "id";
-    public static final String TAG_NAMA ="nama";
-    public static final String TAG_TELPON ="telpon";
+    public static final String TAG_NAMA = "nama";
+    public static final String TAG_TELPON = "telpon";
 
 
-    Bundle bundle = new Bundle();
+    //  Bundle bundle = new Bundle();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,16 +68,15 @@ public class MainActivity extends AppCompatActivity  {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,TambahTeman.class);
+                Intent intent = new Intent(MainActivity.this, TambahTeman.class);
                 startActivity(intent);
             }
         });
 
 
-
     }
 
-    public void BacaData(){
+    public void BacaData() {
 //        ArrayList<HashMap<String,String >> daftarTeman = controller.getAllTeman();
 //        temanArrayList  = new ArrayList<>();
 //        //Memindah dari hasil query kedalam Teman
@@ -90,13 +89,15 @@ public class MainActivity extends AppCompatActivity  {
 //            temanArrayList.add(teman);
 //        }
 
-
+      //  temanArrayList.clear();
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        JsonArrayRequest jArr = new JsonArrayRequest(url_select, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jArr = new JsonArrayRequest(url_select, new Response.Listener<JSONArray>()
+        {
             @Override
             public void onResponse(JSONArray response) {
                 Log.d(TAG, response.toString());
 
+                //parsing json
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject obj = response.getJSONObject(i);
@@ -110,22 +111,18 @@ public class MainActivity extends AppCompatActivity  {
                         e.printStackTrace();
                     }
                 }
+                adapter.notifyDataSetChanged();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG,"Error: "+error.getMessage());
-
+                VolleyLog.d(TAG, "Error: " + error.getMessage());
                 error.printStackTrace();
-                Toast.makeText(MainActivity.this,"GAGAL",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "GAGAL baca data", Toast.LENGTH_SHORT).show();
 
             }
         });
         requestQueue.add(jArr);
     }
-
-
-
-
 
 }

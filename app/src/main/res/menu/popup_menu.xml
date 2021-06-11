@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/mnedit"
+        android:id="@+id/edit"
         android:title="@string/stedit"
         />
     <item
-        android:id="@+id/mnhapus"
+        android:id="@+id/hapus"
         android:title="@string/sthapus"
         />
 
